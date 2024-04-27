@@ -1,0 +1,59 @@
+Nuggets usados:
+System.Data.SqlClient --version 4.8.6
+
+
+
+create procedure ProcInsertVeiculo
+(
+@Placa varchar(50),
+@Renavam varchar(50),
+@NChassi varchar(50),
+@NMotor varchar(50),
+@Marca varchar(50),
+@Modelo varchar(50),
+@Combustivel int,
+@Cor Int,
+@Ano varchar(50),
+@StatusVeiculo bit
+)
+as
+begin
+	insert into Veiculos(Placa, Renavam, NChassi,NMotor,Marca, Modelo, Combustivel, Cor, ano, StatusVeiculo) values
+	(@Placa,@Renavam,@NChassi,@NMotor, @Marca,@Modelo, @Combustivel, @Cor, @Ano, @StatusVeiculo)
+end
+
+go
+
+
+
+create procedure ProcUpdateVeiculo
+(
+@IdVeiculo int,
+@Placa varchar(50),
+@Renavam varchar(50),
+@NChassi varchar(50),
+@NMotor varchar(50),
+@Marca varchar(50),
+@Modelo varchar(50),
+@Combustivel int,
+@Cor Int,
+@Ano varchar(50),
+@StatusVeiculo bit
+)
+as
+begin
+	update Veiculos set
+	Placa = @Placa,
+	Renavam = @Renavam,
+	NChassi = @NChassi,
+	NMotor = @NMotor,
+	Marca = @Marca, 
+	Modelo = @Modelo, 
+	Combustivel = @Combustivel, 
+	Cor = @Cor,
+	ano = @Ano, 
+	StatusVeiculo = @StatusVeiculo
+	where IdVeiculo = @IdVeiculo
+end
+
+go
