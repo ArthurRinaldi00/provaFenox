@@ -1,6 +1,37 @@
+versao .NET : 8.0.204
+
 Nuggets usados:
 System.Data.SqlClient --version 4.8.6
 
+create database prova fenox;
+
+CREATE TABLE Combustivel(
+	[IdCombustivel] [int] IDENTITY(1,1) NOT NULL,
+	[Descricao] [varchar](200) NULL,
+	[StatusCombustivel] [bit] NULL,
+	PRIMARY KEY (IdCombustivel));
+
+CREATE TABLE [dbo].[Cores](
+	[IdCores] [int] IDENTITY(1,1) NOT NULL,
+	[Descricao] [varchar](200) NULL,
+	[StatusCores] [bit] NULL,
+	PRIMARY KEY (IdCores));
+
+CREATE TABLE [dbo].[Veiculos](
+	[IdVeiculo] [int] IDENTITY(1,1) NOT NULL,
+	[Placa] [varchar](50) NULL,
+	[Renavam] [varchar](50) NULL,
+	[NChassi] [varchar](50) NULL,
+	[NMotor] [varchar](50) NULL,
+	[Marca] [varchar](50) NULL,
+	[Modelo] [varchar](50) NULL,
+	[Combustivel] [int] NULL,
+	[Cor] [int] NULL,
+	[ano] [varchar](50) NULL,
+	[StatusVeiculo] [bit] NULL,
+	PRIMARY KEY (IdVeiculo),
+	FOREIGN KEY (Combustivel) REFERENCES Combustivel(IdCombustivel),
+	FOREIGN KEY (Combustivel) REFERENCES Cores(IdCores));
 
 
 create procedure ProcInsertVeiculo
@@ -23,8 +54,6 @@ begin
 end
 
 go
-
-
 
 create procedure ProcUpdateVeiculo
 (

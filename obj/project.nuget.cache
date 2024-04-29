@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "sThPqcZ3fo1n4LLOOH3SHxwuWpimcVCfdpyGQOIr39jBhl7714NQn47IS3R2/5P0h8DNf/sh2Ivsdv5X/tMzvg==",
+  "dgSpecHash": "1VHywtm/mMuljIiST1t4yTHlzDt/Y09j3s9TE6+MDJ/u5tgrHrxzN9WcIVN5eQGJ5CrGJ+4zkaC/xlJbjkXI8w==",
   "success": true,
-  "projectFilePath": "F:\\Repos\\provaFenox\\provaFenox.csproj",
+  "projectFilePath": "f:\\Repos\\provaFenox\\provaFenox.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\arthur\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
     "C:\\Users\\arthur\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",

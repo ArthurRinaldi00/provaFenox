@@ -1,7 +1,15 @@
+using provaFenox.Data;
+using provaFenox.IRepository;
+using provaFenox.Models;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddScoped<IGenericRepository<Cores>, CoresRepository>();
+builder.Services.AddScoped<IGenericRepository<Combustivel>, CombustivelRepository>();
+builder.Services.AddScoped<IGenericRepository<Veiculos>, VeiculosRepository>();
 
 var app = builder.Build();
 

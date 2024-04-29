@@ -17,13 +17,37 @@ namespace provaFenox.Data
             _configuration = configuration;
         }
 
-        public async Task<List<Cores>> GetList()
+        public async Task<List<Cores>> GetAllList()
+        {
+            List<Cores> _List = new List<Cores>();
+
+            using (var connection = new SqlConnection(_configuration.GetConnectionString("SQLConnection"))) {
+                connection.Open();
+                SqlCommand cmd = new SqlCommand("Select * from Cores", connection);
+                cmd.CommandType= CommandType.Text;
+                
+                using (var dr = await cmd.ExecuteReaderAsync())
+                 {
+                    while (await dr.ReadAsync()) {
+                        _List.Add(new Cores()
+                        {
+                            IdCores = Convert.ToInt32(dr["IdCores"]),
+                            Descricao = dr["Descricao"].ToString(),
+                            Status = Convert.ToBoolean(dr["StatusCores"])
+                        });
+                    }
+                }
+            }
+            return _List;
+        }
+
+        public async Task<List<Cores>> GetList(Cores entity)
         {
             List<Cores> _List = new List<Cores>();
 
             using (var connection = new SqlConnection(_configuration.GetConnectionString("SQLConnection"))){
                 connection.Open();
-                SqlCommand cmd = new SqlCommand("Select * from Cores", connection);
+                SqlCommand cmd = new SqlCommand("Select * from Cores where Descricao = Descricao and StatusCores = StatusCores", connection);
                 cmd.CommandType = CommandType.Text;
 
                 using(var dr = await cmd.ExecuteReaderAsync()){
@@ -31,7 +55,7 @@ namespace provaFenox.Data
                         _List.Add(new Cores(){
                             IdCores = Convert.ToInt32(dr["IdCores"]),
                             Descricao = dr["Descricao"].ToString(),
-                            Status = Convert.ToBoolean(dr["StatusCores"])
+                            // Status = Convert.ToBoolean(dr["StatusCores"])
                         });
                     }
                 }
@@ -44,11 +68,11 @@ namespace provaFenox.Data
             using (var connection = new SqlConnection(_configuration.GetConnectionString("SQLConnection")))
             {
                 connection.Open();
-                SqlCommand cmd = new SqlCommand("insert into Cores values (Descricao, Status);", connection);
+                SqlCommand cmd = new SqlCommand("insert into Cores values (@Descricao, @Status);", connection);
                 // cmd.Parameters.AddWithValue("IdCores",entity.IdCores);
-                cmd.Parameters.AddWithValue("Descricao",entity.Descricao);
-                cmd.Parameters.AddWithValue("Status",entity.Status);
-                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@Descricao",entity.Descricao);
+                cmd.Parameters.AddWithValue("@Status",entity.Status);
+                cmd.CommandType = CommandType.Text;
 
                 int affectedRows = await cmd.ExecuteNonQueryAsync();
 

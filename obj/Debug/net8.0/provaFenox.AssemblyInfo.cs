@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("provaFenox")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+cc02a051b153cedcfb8d8036f13d9af5da21deb0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e7dc2dfb567d9fe06a27e6fd33ac5c26b82b1d62")]
 [assembly: System.Reflection.AssemblyProductAttribute("provaFenox")]
 [assembly: System.Reflection.AssemblyTitleAttribute("provaFenox")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

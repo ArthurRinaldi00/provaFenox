@@ -16,13 +16,37 @@ namespace provaFenox.Data
         {
             _configuration = configuration;
         }
-        public async Task<List<Combustivel>> GetList()
+
+        public async Task<List<Combustivel>> GetAllList()
+        {
+            List<Combustivel> _List = new List<Combustivel>();
+
+            using (var connection = new SqlConnection(_configuration.GetConnectionString("SQLConnection"))) {
+                connection.Open();
+                SqlCommand cmd = new SqlCommand("Select * from Combustivel", connection);
+                cmd.CommandType= CommandType.Text;
+
+                using (var dr = await cmd.ExecuteReaderAsync()) {
+                    while (await dr.ReadAsync()) {
+                        _List.Add(new Combustivel()
+                        {
+                            IdCombustivel = Convert.ToInt32(dr["IdCombustivel"]),
+                            Descricao = dr["Descricao"].ToString(),
+                            Status = Convert.ToBoolean(dr["StatusCombustivel"])
+                        });
+                    }
+                }
+            }
+            return _List;
+        }
+
+        public async Task<List<Combustivel>> GetList(Combustivel entity)
         {
             List<Combustivel> _List = new List<Combustivel>();
 
             using (var connection = new SqlConnection(_configuration.GetConnectionString("SQLConnection"))){
                 connection.Open();
-                SqlCommand cmd = new SqlCommand("Select * from Combustivel", connection);
+                SqlCommand cmd = new SqlCommand("Select * from Combustivel where Descricao = Descricao and StatusCombustivel = StatusCombustivel", connection);
                 cmd.CommandType = CommandType.Text;
 
                 using(var dr = await cmd.ExecuteReaderAsync()){

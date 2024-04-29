@@ -2,7 +2,94 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="row justify-content-center">
+    <div>
+        <div class="alert alert-warning" role="alert">
+            CRUD Cores
+        </div>
+        <button type="button" class="btn btn-primary button-new-cor" onclick="OpenModal()" id="button-new-cor">Nova Cor</button>
+
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>
+                        Descricao
+                    </th>
+                    <th>
+                        Status
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody id="tabelaCores"></tbody>
+        </table>
+
+    </div>
 </div>
+
+<!-- Modal Cores -->
+<div class="modal fade" id="ModalCores" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Cores</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Descricao</label>
+            <input type="text" class="form-control" id="txtDescricaoCor">
+        </div>
+
+         <div class="mb-3">
+            <select class="form-select" aria-label="Status Cor" id="txtStatusCor">
+                <option value="1">Ativo</option>
+                <option value="0">Inativo</option>
+            </select>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+        <button type="button" class="btn btn-primary button-save-changes-cor">Salvar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Combustivel -->
+<div class="modal fade" id="ModalCombustivel" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Combustivel</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Descricao</label>
+            <input type="text" class="form-control" id="txtDescricaoCombustivel">
+        </div>
+
+         <div class="mb-3">
+            <select class="form-select" aria-label="Status Cor" id="txtStatusCombustivel">
+                <option value="1">Ativo</option>
+                <option value="0">Inativo</option>
+            </select>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+        <button type="button" class="btn btn-primary button-save-changes-combustivel">Salvar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+<script>
+    document.addEventListener("load", ShowCores());
+    
+</script>

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "F:\\Repos\\provaFenox\\provaFenox.csproj": {}
+    "f:\\Repos\\provaFenox\\provaFenox.csproj": {}
   },
   "projects": {
-    "F:\\Repos\\provaFenox\\provaFenox.csproj": {
+    "f:\\Repos\\provaFenox\\provaFenox.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\Repos\\provaFenox\\provaFenox.csproj",
+        "projectUniqueName": "f:\\Repos\\provaFenox\\provaFenox.csproj",
         "projectName": "provaFenox",
-        "projectPath": "F:\\Repos\\provaFenox\\provaFenox.csproj",
+        "projectPath": "f:\\Repos\\provaFenox\\provaFenox.csproj",
         "packagesPath": "C:\\Users\\arthur\\.nuget\\packages\\",
-        "outputPath": "F:\\Repos\\provaFenox\\obj\\",
+        "outputPath": "f:\\Repos\\provaFenox\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\arthur\\AppData\\Roaming\\NuGet\\NuGet.Config"
